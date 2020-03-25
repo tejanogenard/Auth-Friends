@@ -24,7 +24,7 @@ class Login extends React.Component {
         .then(res => {
             //res.data.payload
             console.log(res)
-        localStorage.setItem('token', JASON.stringify(res.data.payload))
+        localStorage.setItem('token', JSON.stringify(res.data.payload))
         // we need to set up a protected route inside the app component
         // this.props.history.push('/protected)
         })
