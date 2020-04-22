@@ -1,6 +1,7 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
+import axiosWithAuth from './axiosWithAuth'
 class Login extends React.Component {
     state = {
         credentials:{
@@ -9,7 +10,7 @@ class Login extends React.Component {
         }
     }
 
-    handleChane = e => {
+    handleChange = e => {
         this.setState({
             credentials:{
                 ...this.state.credentials,
@@ -20,16 +21,17 @@ class Login extends React.Component {
 
     login = e =>{
         e.preventDefault()
-        axios.post(`/api/login`, this.state.credentials )
+        console.log(this.state.credentials)
+        axiosWithAuth().post(`/api/login`, this.state.credentials )
         .then(res => {
             //res.data.payload
             console.log(res)
         localStorage.setItem('token', JSON.stringify(res.data.payload))
         // we need to set up a protected route inside the app component
-        // this.props.history.push('/protected)
+         this.props.history.push('/protected')
         })
         .catch(err => console.log(err.response))
-    }
+    } 
 
     render(){
         return(
@@ -49,7 +51,7 @@ class Login extends React.Component {
                         />
                         <button>Login</button>
                 </form>
-            </div>
+            </div> 
         )
     }
 }
