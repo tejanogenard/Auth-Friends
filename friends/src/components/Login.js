@@ -24,8 +24,8 @@ class Login extends React.Component {
         console.log(this.state.credentials)
         axiosWithAuth().post(`/api/login`, this.state.credentials )
         .then(res => {
-            //res.data.payload
-            console.log(res)
+        //res.data.payload
+        console.log(res)
         localStorage.setItem('token', JSON.stringify(res.data.payload))
         // we need to set up a protected route inside the app component
          this.props.history.push('/protected')
@@ -40,12 +40,14 @@ class Login extends React.Component {
                     <input
                         type = "text"
                         name = "username"
+                        placeholder = "username"
                         value = {this.state.credentials.username}
                         onChange = {this.handleChange}
                     />
                     <input 
                         type = "password"
                         name = "password"
+                        placeholder = "password"
                         value = {this.state.credentials.password}
                         onChange = {this.handleChange}
                         />
