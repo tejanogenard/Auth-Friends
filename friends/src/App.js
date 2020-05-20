@@ -12,10 +12,8 @@ function App() {
       <Link to = "/login">Login</Link>
       <Link to = "/FriendsList">FriendsList</Link>
 
-        
         <Switch>
           <PrivateRoute exact path ="/FriendsList" component={FriendsList} />
-
           <Route path = "/login" component={Login} />
         </Switch>
      

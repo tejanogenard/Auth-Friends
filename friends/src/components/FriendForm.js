@@ -25,7 +25,7 @@ class FriendForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         axiosWithAuth()
-            .post('/api/friends', this.state.friend)
+        .post('/api/friends', this.state.friend)
      }
 
     render(){
